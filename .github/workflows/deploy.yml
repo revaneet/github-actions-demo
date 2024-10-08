@@ -1,4 +1,4 @@
-name: Test Workflow
+name: Lint, Build, Test and Deploy Workflow
 on: push
 jobs:
   test:
@@ -12,5 +12,11 @@ jobs:
           node-version: 20
       - name: Install Node Modules
         run: npm ci
-      - name: Run Tests
-        run: npm test
+      - name: Check for Lint Issues
+        run: npm lint
+      - name: Build and Run Tests
+        run: |
+          npm build
+          npm test
+      - name: Deploy website
+        run: echo "Deployment successful..."
