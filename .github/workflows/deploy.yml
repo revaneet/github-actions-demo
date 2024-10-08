@@ -1,7 +1,7 @@
 name: Lint, Build, Test and Deploy Workflow
 on: push
 jobs:
-  test:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -13,7 +13,7 @@ jobs:
       - name: Install Node Modules
         run: npm ci
       - name: Check for Lint Issues
-        run: npm lint
+        run: npm run lint
       - name: Build and Run Tests
         run: |
           npm build
